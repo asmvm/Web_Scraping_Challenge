@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+    <!-- <link rel="stylesheet" href="../static/stars.css"> -->
+
+    <title>Mars</title>
+  </head>
+
+  <body>
+    
+    <div class="container-fluid">
+      <div >
+        <div class="jumbotron text-center" id="jumbotron">
+          <div class="mid">
+          <h1>Mission to Mars</h1>
+          <p>View latest news, images, fun facts, and mars hemispheres!</p>
+          <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col">
+            <article>
+              <h2> <strong>Latest Mars News</strong></h2>
+              <hr>
+              <h4><strong>insert the title of the latest news here: {{news title}}</strong></h4>
+              <p>insert the summary of the article here: {{summary}}</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-8">
+         <h4><strong>Featured Mars Image</strong></h4>
+         <p>insert the featured mars image here</p>
+        </div>
+        <div class="col-4">
+          <h4><strong>Facts</strong></h4>
+          <p>insert the mars table here</p>
+          <div>
+            {{mars_table}}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="hemispheres">
+            <h3><strong>Mars Hemispheres</strong></h3>
+            <hr>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="card w-100" style="width: 18rem;">
+            <img class="card-img-top" src="{{hemisphere-1-image}}" alt="Cerberus">
+            <div class="card-body">
+              <p class="card-text">{{image title}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card w-100" style="width: 18rem;">
+            <img class="card-img-top" src="{{hemisphere-2-image}}" alt="Valles Marineris">
+            <div class="card-body">
+              <p class="card-text">{{image title}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="card w-100" style="width: 18rem;">
+            <img class="card-img-top" src="{{hemisphere-3-image}}" alt="Syrtis Major">
+            <div class="card-body">
+              <p class="card-text">{{image title}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card w-100" style="width: 18rem;">
+            <img class="card-img-top" src="{{hemisphere-4-image}}" alt="Schiaparelli">
+            <div class="card-body">
+              <p class="card-text">{{image title}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+
+    <!-- Optional JavaScript -->
+    <script type="text/javascript" src="../static/app.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+  </body>
+
+
+</html>
