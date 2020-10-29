@@ -31,7 +31,7 @@
             <article>
               <h2> <strong>Latest Mars News</strong></h2>
               <hr>
-              <h4><strong>insert the title of the latest news here: {{news title}}</strong></h4>
+              <h4><strong>insert the title of the latest news here: {{news_title}}</strong></h4>
               <p>insert the summary of the article here: {{summary}}</p>
             </article>
           </div>
@@ -62,7 +62,8 @@
       </div>
 
       <div class="row">
-        <div class="col">
+        {% for item in mars_info.hemispheres %}
+        <div class="col-6">
           <div class="card w-100" style="width: 18rem;">
             <img class="card-img-top" src="{{hemisphere-1-image}}" alt="Cerberus">
             <div class="card-body">
@@ -70,17 +71,19 @@
             </div>
           </div>
         </div>
-        <div class="col">
+        {% end for%}
+
+        <!-- <div class="col">
           <div class="card w-100" style="width: 18rem;">
             <img class="card-img-top" src="{{hemisphere-2-image}}" alt="Valles Marineris">
             <div class="card-body">
               <p class="card-text">{{image title}}</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="col">
           <div class="card w-100" style="width: 18rem;">
             <img class="card-img-top" src="{{hemisphere-3-image}}" alt="Syrtis Major">
@@ -97,7 +100,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>  
     <div id='stars'></div>
     <div id='stars2'></div>

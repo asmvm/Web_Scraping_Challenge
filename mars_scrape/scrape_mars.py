@@ -59,7 +59,7 @@ def scrape_feat_image():
 
     featured_image.click()
 
-    featured_image_info = driver.find_element_by_link_text("more info")
+    featured_image_info = driver.find_element_by_partial_link_text("more info")
     featured_image_info.click()
 
     full_featured_image = driver.find_elements_by_class_name("main_image")
@@ -70,11 +70,11 @@ def scrape_feat_image():
         main_image.append(img.get_attribute('src'))
 
     main_image_url = main_image[0]
-    main_image_url
+    image_featured = {"url":main_image_url}
 
     # feat_img = {"image":main_image_url}
     driver.quit()
-    return main_image_url
+    return image_featured
 
 def scrape_mars_table():
     ## Mars Facts
@@ -140,3 +140,12 @@ def scrape_hemispheres():
     hemisphere_image_urls
     driver.quit()
     return hemisphere_image_urls
+
+def scrape_all():
+    mars_dict = {
+        'news': scrape_news(),
+        'featured_img': scrape_feat_image(),
+        'table': scrape_mars_table(),
+        'hemis': scrape_hemispheres()
+    }
+    return mars_dict
