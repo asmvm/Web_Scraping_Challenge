@@ -48,6 +48,7 @@ def scrape_feat_image():
     url_2 = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
 
     driver = webdriver.Firefox()
+    driver.implicitly_wait(10)
     driver.get(url_2)
 
     body_2 = driver.find_element_by_tag_name("body")
@@ -58,12 +59,15 @@ def scrape_feat_image():
     featured_image = driver.find_element_by_id("full_image")
     featured_image.click()
 
-    featured_image_info = driver.find_element_by_partial_link_text("more info")
+    featured_image_info = driver.find_element_by_link_text("more info")
     featured_image_info.click()
 
-    full_featured_image = driver.find_element_by_tag_name('img[class="main_image"]').get_attribute('src')
-    full_featured_image
-
+    try:
+        full_featured_image = driver.find_element_by_tag_name('img[class="main_image"]').get_attribute('src')
+    except AttributeError:
+        print("atrribute error")
+    
+    # full_featured_image = driver.find_element_by_tag_name('img[class="main_image"]').get_attribute('src')    
     driver.quit()
     return full_featured_image
 
