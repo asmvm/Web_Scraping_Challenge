@@ -53,28 +53,19 @@ def scrape_feat_image():
     body_2 = driver.find_element_by_tag_name("body")
     body_html_2 = body_2.get_attribute("innerHTML")
     soup_2 = BS(body_html_2,'html.parser')
-    # print(soup_2.prettify())
+    
 
     featured_image = driver.find_element_by_id("full_image")
-
     featured_image.click()
 
     featured_image_info = driver.find_element_by_partial_link_text("more info")
     featured_image_info.click()
 
-    full_featured_image = driver.find_elements_by_class_name("main_image")
+    full_featured_image = driver.find_element_by_tag_name('img[class="main_image"]').get_attribute('src')
     full_featured_image
 
-    main_image = []
-    for img in full_featured_image:
-        main_image.append(img.get_attribute('src'))
-
-    main_image_url = main_image[0]
-    image_featured = {"url":main_image_url}
-
-    # feat_img = {"image":main_image_url}
     driver.quit()
-    return image_featured
+    return full_featured_image
 
 def scrape_mars_table():
     ## Mars Facts
