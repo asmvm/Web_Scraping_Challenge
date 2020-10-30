@@ -30,13 +30,21 @@ def scrape_news():
     news_title = news_titles[1].text
 
     news_p=soup.find('div', class_='article_teaser_body').text
+
+    date = soup.find('div', class_='list_date').text
+
+    nasa_url = "https://mars.nasa.gov/"
+    news_title = news_titles[1].find('a')['href']
+    news_title_url = nasa_url + news_title
     
     print(f'The title is: {news_title}')
     print(f'Summary: {news_p}')
 
     news = {
+        "date":date,
         "title":news_title,
-        "summary":news_p
+        "summary":news_p,
+        "link": news_title_url
     }
 
     driver.quit()
@@ -55,7 +63,6 @@ def scrape_feat_image():
     body_html_2 = body_2.get_attribute("innerHTML")
     soup_2 = BS(body_html_2,'html.parser')
     
-
     featured_image = driver.find_element_by_id("full_image")
     featured_image.click()
 
@@ -83,7 +90,7 @@ def scrape_mars_table():
     mars_facts.columns = ['Features','Data']
     # mars_facts
 
-    html_table = mars_facts.to_html(classes = 'table table-striped')
+    html_table = mars_facts.to_html(classes = 'table table-striped', index=False, index_names=False)
     # html_table
 
     # mars_facts.to_html('mars_facts.html', index=False, index_names=False)

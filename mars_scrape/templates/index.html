@@ -32,7 +32,10 @@
             <article>
               <h2> <strong>Latest Mars News</strong></h2>
               <hr>
-              <h5><strong>{{mars.news.title}}</strong></h5>
+              <h6>{{mars.news.date}}</h6>
+              <a href="{{mars.news.link}}"> 
+                <h5><strong>{{mars.news.title}}</strong></h5>
+              </a>
               <p>{{mars.news.summary}}</p>
             </article>
           </div>
@@ -43,16 +46,15 @@
       <div class="row">
         <div class="col-8">
          <h4><strong>Featured Mars Image</strong></h4>
-         <p>insert the featured mars image here</p>
-         <img src="{{mars['featured_image']}}" class="mw-100"
+         <img src="{{mars.featured_img}}" class="mw-100"
          alt="featured image">
-
+        
+         <!--MARS TABLE DATA CONTENT  -->
         </div>
         <div class="col-4">
           <h4><strong>Facts</strong></h4>
-          <p>insert the mars table here</p>
           <div>
-            {{mars.table}}
+            {{mars.table | safe }}
           </div>
         </div>
       </div>
@@ -70,9 +72,9 @@
         {% for hemi in mars.hemis %}
         <div class="col-6">
           <div class="card w-100" style="width: 18rem;">
-            <img class="card-img-top" src="{{[hemi]['img_url']}}" alt="hemisphere">
+            <img class="card-img-top" src="{{hemi.img_url}}" alt="hemisphere">
             <div class="card-body">
-              <p class="card-text">{{[hemi]['title']}}</p>
+              <p class="card-text">{{hemi.title}}</p>
             </div>
           </div>
         </div>
