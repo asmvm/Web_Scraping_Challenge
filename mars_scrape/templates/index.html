@@ -26,29 +26,33 @@
           </div>
         </div>
         
-        <!-- Fetch the latest news here -->
+        <!-- LATEST NEWS CONTENT -->
         <div class="row">
           <div class="col">
             <article>
               <h2> <strong>Latest Mars News</strong></h2>
               <hr>
-              <h4><strong>{{mars.title}}</strong></h4>
-              <p>{{mars.summary}}</p>
+              <h5><strong>{{mars.news.title}}</strong></h5>
+              <p>{{mars.news.summary}}</p>
             </article>
           </div>
         </div>
       </div>
 
+      <!-- FEATURED IMAGE CONTENT -->
       <div class="row">
         <div class="col-8">
          <h4><strong>Featured Mars Image</strong></h4>
          <p>insert the featured mars image here</p>
+         <img src="{{mars['featured_image']}}" class="mw-100"
+         alt="featured image">
+
         </div>
         <div class="col-4">
           <h4><strong>Facts</strong></h4>
           <p>insert the mars table here</p>
           <div>
-            {{mars_table}}
+            {{mars.table}}
           </div>
         </div>
       </div>
@@ -63,12 +67,12 @@
       </div>
 
       <div class="row">
-        {% for item in mars.hemis %}
+        {% for hemi in mars.hemis %}
         <div class="col-6">
           <div class="card w-100" style="width: 18rem;">
-            <img class="card-img-top" src="{{mars.hemis.img_url}}" alt="Cerberus">
+            <img class="card-img-top" src="{{[hemi]['img_url']}}" alt="hemisphere">
             <div class="card-body">
-              <p class="card-text">{{mars.hemis.title}}</p>
+              <p class="card-text">{{[hemi]['title']}}</p>
             </div>
           </div>
         </div>
@@ -76,7 +80,7 @@
       </div>
     </div>  
 
-    
+
     <div id='stars'></div>
     <div id='stars2'></div>
     <div id='stars3'></div>
