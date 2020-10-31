@@ -9,8 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/style.css">
-    <!-- <link rel="stylesheet" href="../static/stars.css"> -->
-
+    
     <title>Mars</title>
   </head>
 
@@ -18,6 +17,7 @@
     
     <div class="container-fluid">
       <div >
+        <!-- JUMBOTRON: START SCRAPE -->
         <div class="jumbotron text-center" id="jumbotron">
           <div class="mid">
           <h1>Mission to Mars</h1>
@@ -26,7 +26,7 @@
           </div>
         </div>
         
-        <!-- LATEST NEWS CONTENT -->
+        <!-- LATEST NEWS CONTENT WITH CURRENT DATE AND ANCHOR TAG TO ARTICLE -->
         <div class="row">
           <div class="col">
             <article>
@@ -34,7 +34,7 @@
               <hr>
               <h6>{{mars.news.date}}</h6>
               <a href="{{mars.news.link}}"> 
-                <h5><strong>{{mars.news.title}}</strong></h5>
+                <h5 style="color:black"><strong>{{mars.news.title}}</strong></h5>
               </a>
               <p>{{mars.news.summary}}</p>
             </article>
@@ -52,7 +52,7 @@
          <!--MARS TABLE DATA CONTENT  -->
         </div>
         <div class="col-4">
-          <h4><strong>Facts</strong></h4>
+          <center><h4><strong>Facts</strong></h4></center>
           <div>
             {{mars.table | safe }}
           </div>
@@ -82,10 +82,6 @@
       </div>
     </div>  
 
-
-    <div id='stars'></div>
-    <div id='stars2'></div>
-    <div id='stars3'></div>
 
     <!-- Optional JavaScript -->
     <script type="text/javascript" src="../static/app.js"></script>

@@ -6,6 +6,6 @@ h1 {
     text-align: center;
     font-weight: bold;
 }
-/* #jumbotron {
-    background-image: url(../static/img/solarsystem.jpg);
+/* .jumbotron {
+    background: url(../static/img/solarsystem.jpg);
 } */
