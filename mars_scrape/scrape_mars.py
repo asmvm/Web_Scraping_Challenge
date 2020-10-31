@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup as BS
 import pandas as pd
 from pprint import pprint
 from pymongo import MongoClient
+import time
 
 def scrape_news():
     # NASA Mars News
@@ -34,8 +35,8 @@ def scrape_news():
     date = soup.find('div', class_='list_date').text
 
     nasa_url = "https://mars.nasa.gov/"
-    news_title = news_titles[1].find('a')['href']
-    news_title_url = nasa_url + news_title
+    news_link = news_titles[1].find('a')['href']
+    news_title_url = nasa_url + news_link
     
     print(f'The title is: {news_title}')
     print(f'Summary: {news_p}')
@@ -56,7 +57,7 @@ def scrape_feat_image():
     url_2 = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
 
     driver = webdriver.Firefox()
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(20)
     driver.get(url_2)
 
     body_2 = driver.find_element_by_tag_name("body")
@@ -66,6 +67,7 @@ def scrape_feat_image():
     featured_image = driver.find_element_by_id("full_image")
     featured_image.click()
 
+    time.sleep(1)
     featured_image_info = driver.find_element_by_link_text("more info")
     featured_image_info.click()
 

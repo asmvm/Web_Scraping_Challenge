@@ -16,8 +16,8 @@ app = Flask(__name__)
 def home():
 
     # Find one record of data from the mongo database
-    mars_data = col.find_one()
-
+    # mars_data = col.find_one()
+    mars_data = list(col.find())[-1]
     # Return template and data
     return render_template("index.html", mars=mars_data)
 
